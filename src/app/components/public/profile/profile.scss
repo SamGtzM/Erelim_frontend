@@ -1,0 +1,13 @@
+.logoc{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 3;
+  cursor: pointer;
+  
+  img {
+    width: 35px; 
+    height: auto; 
+    display: block;
+  }
+}

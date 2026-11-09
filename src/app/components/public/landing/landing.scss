@@ -1,0 +1,156 @@
+// 1. Registramos la fuente con soporte explícito para variaciones de ejes modernos
+@font-face {
+  font-family: 'Open Sans Local';
+  src: url('/fronts/erelim/Open_Sans/OpenSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype-variations'),
+       url('/fronts/erelim/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+
+  src: url('/fronts/Labs/Open_Sans/OpenSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype-variations'),
+       url('/fronts/Labs/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+
+  src: url('/fronts/puntos/Open_Sans/OpenSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype-variations'),
+       url('/fronts/puntos/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+}
+
+$bg-color: #010101;
+$terminal-green: #6cd487;
+$loop-duration: 10s;
+
+// --- MIXINS DE NEÓN ---
+@mixin neon-text {
+  text-shadow: 
+    0 0 4px rgba($terminal-green, 0.6),
+    0 0 10px rgba($terminal-green, 0.4),
+    0 0 20px rgba($terminal-green, 0.2);
+}
+
+@mixin neon-text-menu {
+  text-shadow: 
+    0 0 3px rgba($terminal-green, 0.4);
+}
+
+@mixin neon-border {
+  box-shadow: 
+    0 0 6px rgba($terminal-green, 0.4),
+    inset 0 0 6px rgba($terminal-green, 0.2);
+}
+
+.logo a img {
+  position: absolute;
+  top: 1.4%;
+  left: 1%;
+  width: 3%;
+  height: auto;
+}
+
+.logoname {
+  position: absolute;
+  bottom: 1.5%;
+  left: 1.5%;
+
+  .uno {
+    text-decoration: none;
+    list-style: none;
+    z-index: 9;
+    color: #ffffff;
+
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 5rem;
+  }
+  
+  .dos {
+    text-decoration: none;
+    list-style: none;
+    z-index: 0;
+    color: #74f59b;
+    
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    font-size: 2rem;
+
+  }
+}
+
+
+.menu {
+  position: fixed;
+  text-align: center;
+  top: 1.5%;
+  right: .1%;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;       // Alinea los <li> en fila horizontal
+    gap: 20px;           // Espacio entre cada elemento del menú
+
+    li {
+      a {
+        display: block;
+        text-decoration: none;
+        color: #ffffff;     // Cambia por tu color deseado
+        font-weight: 500;
+        padding: 8px 12px;
+        transition: color 0.3s ease;
+
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings:"wdth" 100;
+        font-weight: 100;
+        font-size: .6rem;
+
+        &:hover {
+          color: #6cd487; // Color al pasar el cursor
+        }
+      }
+    }
+  }
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh; // Ocupa toda la altura de la ventana
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff; // Color del texto
+  font-family: "Open Sans", sans-serif;
+
+  .content {
+    max-width: 800px; // Limita el ancho del contenido
+    padding: 20px;
+
+    h1 {
+      font-size: 3rem; // Tamaño del título
+      margin-bottom: 20px;
+      @include neon-text; // Aplica el efecto de neón al título
+    }
+
+    p {
+      font-size: 1.5rem; // Tamaño del párrafo
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #6cd487; // Color del botón
+      color: #000000; // Color del texto del botón
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #4bb36b; // Color al pasar el cursor
+      }
+    }
+}
+}
