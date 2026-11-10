@@ -46,20 +46,6 @@ $loop-duration: 10s;
   height: 100vh;
   height: 100dvh;
 
-  // GLASSMORPHISM ESTILO APPLE
-  background: rgba(255, 255, 255, 0.48);
-
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-
-  // Borde sutil de cristal
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-
-  // Luz interior delicada
-  box-shadow:
-    inset -1px 0 0 rgba(255, 255, 255, 0.05),
-    4px 0 24px rgba(0, 0, 0, 0.12);
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,9 +71,9 @@ $loop-duration: 10s;
 
   // MENÚ LATERAL
   .menu {
-    position: relative;
+    position: absolute;
     width: 100%;
-    margin-top: 60px;
+    bottom: 0px;
     text-align: center;
 
     ul {
@@ -124,20 +110,22 @@ $loop-duration: 10s;
           padding: 12px 6px;
 
           text-decoration: none;
-          color: #ffffff;
+          color: #000000;
 
-          font-family: "Open Sans", sans-serif;
-          font-size: 0.75rem;
-          font-weight: 500;
-          letter-spacing: 0.08em;
+          
+
+          font-family: "Roboto Mono", monospace;
+          font-size: 1rem;
+          font-weight: 100;
+          letter-spacing: 1.5px;
+          // writing-mode: vertical-rl;
 
           transition:
             color 0.3s ease,
             background 0.3s ease;
 
           &:hover {
-            color: #6cd487;
-            background: rgba(255, 255, 255, 0.035);
+            color: #910f0f;
           }
 
           &.active {
@@ -201,6 +189,7 @@ $loop-duration: 10s;
     color: #000000;
     writing-mode: vertical-rl;
     margin-bottom: 8px;
+    margin-right: 4px;
   }
 
   // Enlaces en columna
@@ -271,7 +260,7 @@ $loop-duration: 10s;
 
 .logoname {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
