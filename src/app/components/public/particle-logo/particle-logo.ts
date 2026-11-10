@@ -44,6 +44,7 @@ export class ParticleLogo implements OnInit, OnDestroy {
   // Cambia estas rutas por tus imágenes reales.
   // Se mostrará una imagen por ciclo.
   private readonly imagePaths = [
+    'particles/particles.png',
     'particles/image.png',
     'particles/image1.png',
     'particles/image2.png',
@@ -64,7 +65,7 @@ export class ParticleLogo implements OnInit, OnDestroy {
   private lastCycleTime = 0;
 
   // Tamaño base con el que se analiza cada imagen.
-  private readonly baseImageSize = 320;
+  private readonly baseImageSize = 420;
 
   // Cantidad total de partículas.
   // Se toma de la imagen con más puntos.
@@ -109,7 +110,7 @@ export class ParticleLogo implements OnInit, OnDestroy {
 
   // Precisión de la silueta.
   // Si quieres más fidelidad, puedes subirlo.
-  private readonly logoPrecision = 0.35;
+  private readonly logoPrecision = 0.40;
 
   ngOnInit(): void {
     const canvas = this.canvasRef.nativeElement;
@@ -317,7 +318,7 @@ export class ParticleLogo implements OnInit, OnDestroy {
 
         size: pSize,
 
-        color: `rgba(255, 255, 255, ${
+        color: `rgba(0, 0, 0, ${
           Math.random() * 0.5 + 0.5
         })`,
 

@@ -34,12 +34,237 @@ $loop-duration: 10s;
     inset 0 0 6px rgba($terminal-green, 0.2);
 }
 
-.logo a img {
-  position: absolute;
-  top: 1.4%;
-  left: 1%;
-  width: 3%;
-  height: auto;
+
+
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 84px;
+  height: 100vh;
+  height: 100dvh;
+
+  // GLASSMORPHISM ESTILO APPLE
+  background: rgba(255, 255, 255, 0.48);
+
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  // Borde sutil de cristal
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+
+  // Luz interior delicada
+  box-shadow:
+    inset -1px 0 0 rgba(255, 255, 255, 0.05),
+    4px 0 24px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 1000;
+
+  // LOGO SUPERIOR
+  a {
+    img {
+      position: relative;
+      display: block;
+      width: 46px;
+      height: auto;
+      margin: 28px auto 0;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // MENÚ LATERAL
+  .menu {
+    position: relative;
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+
+      li {
+        width: 100%;
+        position: relative;
+
+        // Líneas divisorias
+        &:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 28%;
+          width: 44%;
+          height: 1px;
+          background: rgba(0, 0, 0);
+        }
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          min-height: 94px;
+          padding: 12px 6px;
+
+          text-decoration: none;
+          color: #ffffff;
+
+          font-family: "Open Sans", sans-serif;
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+
+          transition:
+            color 0.3s ease,
+            background 0.3s ease;
+
+          &:hover {
+            color: #6cd487;
+            background: rgba(255, 255, 255, 0.035);
+          }
+
+          &.active {
+            color: #6cd487;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 25%;
+              height: 50%;
+              width: 3px;
+              background: #6cd487;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // RESPONSIVE PARA PANTALLAS PEQUEÑAS
+  @media (max-width: 768px) {
+    width: 64px;
+
+    a img {
+      width: 36px;
+      margin-top: 20px;
+    }
+
+    .menu {
+      margin-top: 35px;
+
+      ul li a {
+        min-height: 72px;
+        font-size: 0.6rem;
+        padding: 8px 4px;
+      }
+    }
+  }
+}
+
+
+.social-media {
+  position: fixed;
+  right: 22px;
+  bottom: 28px;
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  // Etiqueta estilo técnico
+  .social-label {
+    font-family: "Roboto Mono", monospace;
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+    color: #000000;
+    writing-mode: vertical-rl;
+    margin-bottom: 8px;
+  }
+
+  // Enlaces en columna
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    a {
+      width: 1.2rem;
+      height: 1.2rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #000000;
+      text-decoration: none;
+
+      transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      &:hover {
+        color: #baff00;
+        transform: translateX(-3px);
+      }
+    }
+  }
+
+  // Pequeño indicador inferior
+  .social-dot {
+    width: 4px;
+    height: 4px;
+    background: #baff00;
+    margin-top: 6px;
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    right: 12px;
+    bottom: 20px;
+    gap: 10px;
+
+    .social-label {
+      font-size: 7px;
+    }
+
+    .social-links {
+      gap: 12px;
+
+      a {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
 }
 
 
@@ -61,6 +286,7 @@ $loop-duration: 10s;
       #fd6003,
       #ffbc0e,
       #ffbc0e,
+      #fd6003,
       #fd6003,
       #000000,
       #000000,
@@ -88,7 +314,7 @@ $loop-duration: 10s;
   .dos {
     text-decoration: none;
     list-style: none;
-    color: #ffffff;
+    color: #000000;
     line-height: 1;
     float: right;
 
@@ -111,45 +337,6 @@ $loop-duration: 10s;
 
   100% {
     background-position: 0% 50%;
-  }
-}
-
-
-
-.menu {
-  position: fixed;
-  text-align: center;
-  top: 1.5%;
-  right: .1%;
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;       // Alinea los <li> en fila horizontal
-    gap: 20px;           // Espacio entre cada elemento del menú
-
-    li {
-      a {
-        display: block;
-        text-decoration: none;
-        color: #ffffff;     // Cambia por tu color deseado
-        font-weight: 500;
-        padding: 8px 12px;
-        transition: color 0.3s ease;
-
-        font-family: "Open Sans", sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-        font-variation-settings:"wdth" 100;
-        font-weight: 100;
-        font-size: .6rem;
-
-        &:hover {
-          color: #6cd487; // Color al pasar el cursor
-        }
-      }
-    }
   }
 }
 
