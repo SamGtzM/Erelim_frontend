@@ -44,12 +44,18 @@ export class ParticleLogo implements OnInit, OnDestroy {
   // Cambia estas rutas por tus imágenes reales.
   // Se mostrará una imagen por ciclo.
   private readonly imagePaths = [
-    'particles/particles.png',
-    'particles/image.png',
     'particles/image1.png',
     'particles/image2.png',
     'particles/image3.png',
-    'particles/image4.png'
+    'particles/image4.png',
+    'particles/image5.png',
+    'particles/image6.png',
+    'particles/image7.png',
+    'particles/image8.png',
+    'particles/image9.png',
+    'particles/image10.png',
+    'particles/image11.png',
+    'particles/image12.png'
   ];
 
   // Aquí guardamos las formas extraídas
@@ -304,7 +310,7 @@ export class ParticleLogo implements OnInit, OnDestroy {
       );
 
       const pSize =
-        Math.random() > 0.85 ? 1.2 : 0.7;
+        Math.random() > 0.85 ? 1.2 : 0.8;
 
       this.particles.push({
         x: Math.random() * canvas.width,
